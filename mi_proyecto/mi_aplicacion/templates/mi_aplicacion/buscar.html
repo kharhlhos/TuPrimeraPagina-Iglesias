@@ -1,0 +1,20 @@
+{% extends 'mi_aplicacion/base.html' %}
+
+{% block title %}Buscar Libro{% endblock %}
+
+{% block content %}
+<h1>Buscar Libro</h1>
+<form method="GET">
+    {{ form.as_p }}
+    <button type="submit">Buscar</button>
+</form>
+
+<h2>Resultados</h2>
+<ul>
+    {% for libro in libros %}
+        <li>{{ libro.titulo }} ({{ libro.autor }})</li>
+    {% empty %}
+        <li>No se encontraron resultados</li>
+    {% endfor %}
+</ul>
+{% endblock %}
